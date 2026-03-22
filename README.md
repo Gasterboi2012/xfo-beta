@@ -33,6 +33,7 @@ The `latest` tag will automatically point to the latest build. That build will s
 ## You can also build the image from source (Which is reccommended)
 
 -First, install bluebuild
+ 
   https://github.com/blue-build/cli
 
 -Then, build
