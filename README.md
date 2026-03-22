@@ -32,11 +32,11 @@ The `latest` tag will automatically point to the latest build. That build will s
 
 ## You can also build the image from source (Which is reccommended)
 
--First, install bluebuild
+- First, install bluebuild
  
   https://github.com/blue-build/cli
 
--Then, build
+- Then, build
 ```
 sudo bluebuild generate-iso --iso-name xfo-oper-sys.iso image ghcr.io/gasterboi2012/xfo-beta
  ```
