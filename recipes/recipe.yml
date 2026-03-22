@@ -6,8 +6,8 @@ name: xfo-beta
 description: This is my personal OS image.
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/silverblue-main
-image-version: 42 # latest is also supported if you want new updates ASAP
+base-image: ghcr.io/ublue-os/kinoite-nvidia
+image-version: 43 # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
@@ -16,15 +16,27 @@ modules:
     files:
       - source: system
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
-
+  - type: akmods
+    base: main
+    nvidia-driver:
+      - nvidia-open
+  - type: fonts
+    fonts:
+      nerd-fonts:
+        - JetBrainsMono
+        - Firacode
   - type: dnf
     repos:
-      copr:
-        - atim/starship
+      cleanup: true
+      files: 
+        - https://repo.librewolf.net/librewolf.repo
+      nonfree: rpmfusion
     install:
       packages:
-        - micro
-        - starship
+        - https://github.com/Vencord/Vesktop/releases/download/v1.6.5/vesktop-1.6.5.x86_64.rpm
+        - steam
+        - librewolf
+        - fastfetch
     remove:
       packages:
         # example: removing firefox (in favor of the flatpak)
@@ -34,12 +46,11 @@ modules:
 
   - type: default-flatpaks
     configurations:
-      - notify: true # Send notification after install/uninstall is finished (true/false)
+      - notify: false # Send notification after install/uninstall is finished (true/false)
         scope: system
         # If no repo information is specified, Flathub will be used by default
         install: # system flatpaks we want all users to have and not remove
-          - org.mozilla.firefox
-          - org.gnome.Loupe
+          - org.vinegarhq.Sober
       - scope: user # Also add Flathub user repo, but no user packages
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
