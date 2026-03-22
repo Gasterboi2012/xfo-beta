@@ -1,8 +1,8 @@
 # xfo-beta &nbsp; [![bluebuild build badge](https://github.com/gasterboi2012/xfo-beta/actions/workflows/build.yml/badge.svg)](https://github.com/gasterboi2012/xfo-beta/actions/workflows/build.yml)
 
-See the [BlueBuild docs](https://blue-build.org/how-to/setup/) for quick setup instructions for setting up your own repository based on this template.
-
-After setup, it is recommended you update this README to describe your custom image.
+This is a custom Fedora Kinoite image i developed to suit my needs, this image isnt very customized and only contains preinstalled apps, fonts, and nvidia drivers.
+Because this image was developed for my purposes only, it is not advised to use this and rather, make your own image.
+i do not plan to add any custom "logos" besides changing the fastfetch
 
 ## Installation
 
@@ -30,14 +30,12 @@ To rebase an existing atomic Fedora installation to the latest build:
 
 The `latest` tag will automatically point to the latest build. That build will still always use the Fedora version specified in `recipe.yml`, so you won't get accidentally updated to the next major version.
 
-## ISO
+## You can also build the image from source (Which is reccommended
 
-If build on Fedora Atomic, you can generate an offline ISO with the instructions available [here](https://blue-build.org/how-to/generate-iso/#_top). These ISOs cannot unfortunately be distributed on GitHub for free due to large sizes, so for public projects something else has to be used for hosting.
+-First, install bluebuild
+  https://github.com/blue-build/cli
 
-## Verification
-
-These images are signed with [Sigstore](https://www.sigstore.dev/)'s [cosign](https://github.com/sigstore/cosign). You can verify the signature by downloading the `cosign.pub` file from this repo and running the following command:
-
-```bash
-cosign verify --key cosign.pub ghcr.io/gasterboi2012/xfo-beta
+-Then, build
 ```
+sudo bluebuild generate-iso --iso-name xfo-oper-sys.iso image ghcr.io/gasterboi2012/xfo-beta
+ ```
