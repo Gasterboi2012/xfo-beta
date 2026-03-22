@@ -18,8 +18,8 @@ modules:
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
   - type: akmods
     base: main
-    nvidia-driver:
-      - nvidia-open
+      install:
+        - nvidia-open
   - type: fonts
     fonts:
       nerd-fonts:
