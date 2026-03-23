@@ -25,12 +25,13 @@ modules:
       cleanup: true
       files: 
         - https://repo.librewolf.net/librewolf.repo
-      nonfree: rpmfusion
+      nonfree: negativo17
     install:
       packages:
         - librewolf
         - fastfetch
         - https://github.com/Vencord/Vesktop/releases/download/v1.6.5/vesktop-1.6.5.x86_64.rpm
+        - steam
     remove:
       packages:
         - firefox
