@@ -22,7 +22,7 @@ modules:
         - Firacode
   - type: dnf
     repos:
-      cleanup: true
+      cleanup: false
       files: 
         - https://repo.librewolf.net/librewolf.repo
       nonfree: negativo17
